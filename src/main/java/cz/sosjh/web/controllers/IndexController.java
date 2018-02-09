@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class IndexController {
 
     @GetMapping(path = "/", produces = MediaType.TEXT_HTML_VALUE)
-    public String index(@RequestParam(name = "myName", defaultValue = "World") String myName) {
+    public String index(@RequestParam(name = "myName", defaultValue = "World") String myName),Model model) {
+    model.addAttribute("name", myName);
         return "index";
     }
 }
